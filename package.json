@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jim68000/Github-pr-healthcheck/issues"
   },
-  "homepage": "https://github.com/jim68000/Github-pr-healthcheck#readme"
+  "homepage": "https://github.com/jim68000/Github-pr-healthcheck#readme",
+  "dependencies": {
+    "mocha": "^6.1.4"
+  }
 }

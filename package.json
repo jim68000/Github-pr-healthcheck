@@ -1,0 +1,24 @@
+{
+  "name": "github-pr-healthcheck",
+  "version": "0.0.1",
+  "description": "Healthcheck for team PRs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jim68000/Github-pr-healthcheck.git"
+  },
+  "keywords": [
+    "PR",
+    "healthcheck",
+    "github"
+  ],
+  "author": "Jim Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jim68000/Github-pr-healthcheck/issues"
+  },
+  "homepage": "https://github.com/jim68000/Github-pr-healthcheck#readme"
+}

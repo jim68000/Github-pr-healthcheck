@@ -7,7 +7,7 @@ const repo = `https://api.github.com/repos/${process.env.REPO}/pulls`
 
 const headers = {
   'User-Agent': `${process.env.GITHUB_USER}`,
-  'Authorization': `${process.env.GITHUB_TOKEN}`,
+  'Authorization': `token ${process.env.GITHUB_TOKEN}`,
 }
 
 const pullData = []

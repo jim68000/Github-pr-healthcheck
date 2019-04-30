@@ -1,17 +1,29 @@
 require('dotenv').config()
 const request = require('request-promise')
+const http = require('http')
+const fs = require('fs')
 
-console.log(process.env.GITHUB_USER)
+let server_started = false
+
+const pullData = []
+let counter = 0
 
 const repo = `https://api.github.com/repos/${process.env.REPO}/pulls`
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/html');
+  res.end(JSON.stringify(pullData));
+});
+
 
 const headers = {
   'User-Agent': `${process.env.GITHUB_USER}`,
   'Authorization': `token ${process.env.GITHUB_TOKEN}`,
 }
 
-const pullData = []
-let counter = 0
+
+
 
 const authRequest = (url) => {
   const options = {
@@ -38,7 +50,12 @@ const getPulls = (pulls) => {
         })
         counter++
         if (counter === pulls.length) {
-          // we are ready
+          if (!server_started) {
+            server.listen(process.env.PORT, process.env.HOSTNAME, () => {
+              console.log('Server running')
+              server_started = true
+            })
+          }
 
         }
       })

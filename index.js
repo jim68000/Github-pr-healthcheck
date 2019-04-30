@@ -14,16 +14,12 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/html');
   res.end(JSON.stringify(pullData));
-});
-
+})
 
 const headers = {
   'User-Agent': `${process.env.GITHUB_USER}`,
   'Authorization': `token ${process.env.GITHUB_TOKEN}`,
 }
-
-
-
 
 const authRequest = (url) => {
   const options = {

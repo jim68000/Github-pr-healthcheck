@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>
+        PR performance dashboard
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500" rel="stylesheet">
+    <style type="text/css">
+        body {
+            /*border: 1px solid red;*/
+            height: 1024px;
+            width: 1920px;
+            margin: 0;
+            margin-left: 40px;
+            background: linear-gradient(to bottom, black, #002020);
+            color: ghostwhite;
+            font-family: Montserrat;
+        }
+
+        main {
+            position: relative
+        }
+
+        h1 {
+            color: darkgray;
+        }
+
+        div {
+            padding: 0;
+            margin: 0;
+        }
+
+        #pr_nums {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+
+        #ave_age {
+            position: absolute;
+            left: 960px;
+            top: 0px;
+        }
+
+        #most_comments {
+            position: absolute;
+            left: 0px;
+            top: 500px;
+        }
+
+        #oldest {
+            position: absolute;
+            left: 960px;
+            top: 500px;
+        }
+
+        .data_item {
+            font-size: 144px;
+            padding: 20px;
+            width: 900px;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        h2 {
+            font-size: 72px;
+            color: dimgrey;
+            margin: 0
+        }
+
+        .pr_title {
+            font-size: 24px
+        }
+
+        .author {
+            font-size: 24px;
+            font-style: italic;
+        }
+
+        .avi {
+            height: 48px;
+            width: 48px;
+        }
+
+        img {
+            float: left;
+            padding-right: 20px
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>
+    PR Status Dashboard: ${repo}
+</h1>
+
+<main>
+    <div id="pr_nums" class="data_item">
+        <h2>Open PRs</h2>
+        ${num_open_prs}
+    </div>
+
+    <div id="ave_age" class="data_item">
+        <h2>Average age</h2>
+        ${num_ave_age} days
+    </div>
+
+    <div id="most_comments" class="data_item">
+        <h2>Most comments</h2>
+        <img src="${author_most_comments_avi}" class="avi">
+        <div class="pr_title">${most_comments_title}</div>
+        <div class="author">
+            ${author_most_comments}
+        </div>
+        ${most_comments_comments}
+    </div>
+
+    <div id="oldest" class="data_item">
+        <h2>Oldest PR</h2>
+        <img src="${author_oldest_avi}" class="avi">
+
+        <div class="pr_title">${oldest_title}</div>
+        <div class="author">
+            ${author_oldest}
+        </div>
+        ${oldest_age}
+    </div>
+
+</main>
+</body>
+</html>

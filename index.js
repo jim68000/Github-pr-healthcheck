@@ -9,7 +9,7 @@ const template = fs.readFileSync('./html/git_status.html', 'utf-8').split('\n')
 
 let server_started = false
 
-const pullData = []
+let pullData = []
 let counter = 0
 
 const repo = `https://api.github.com/repos/${process.env.REPO}/pulls`
@@ -80,6 +80,7 @@ const authRequest = (url) => {
 }
 
 const getPulls = (pulls) => {
+  pullData = []
   pulls.forEach(pull => {
     authRequest(pull.url)
       .then(response => {
@@ -106,8 +107,17 @@ const getPulls = (pulls) => {
   })
 }
 
-authRequest(repo)
-.then(res => {
-  const pulls = JSON.parse(res)
-  getPulls(pulls)
-}).then(() => console.log('Request done'))
+const makeGitHubRequest = () => {
+  authRequest(repo)
+    .then(res => {
+      const pulls = JSON.parse(res)
+      getPulls(pulls)
+    }).then(() => console.log('Request done'))
+}
+
+makeGitHubRequest()
+
+setInterval(makeGitHubRequest, 1 * 60 * 1000)
+
+
+

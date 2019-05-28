@@ -112,7 +112,7 @@ const makeGitHubRequest = () => {
     .then(res => {
       const pulls = JSON.parse(res)
       getPulls(pulls)
-    }).then(() => console.log('Request done'))
+    }).then(() => console.log(`Request done at ${new Date().toTimeString()}`))
 }
 
 makeGitHubRequest()

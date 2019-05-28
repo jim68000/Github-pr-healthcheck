@@ -5,9 +5,7 @@ const fs = require('fs')
 const hour_diff = require('date-fns/difference_in_hours')
 const compare_asc = require('date-fns/compare_asc')
 
-
 const template = fs.readFileSync('./html/git_status.html', 'utf-8').split('\n')
-
 
 let server_started = false
 
